@@ -78,8 +78,8 @@ class Janken
         if @pc_finger == 0 || @pc_finger == 1 || @pc_finger == 2 || @pc_finger == 3 then
             puts "ほい！"
             puts "--------------------"
-            puts "あなた : #{@@fingers[@pc_finger]}を出しました"
-            puts "相手 : #{@@fingers[@npc_finger]}を出しました"
+            puts "あなた : #{@@fingers[@pc_finger]}"
+            puts "相手 : #{@@fingers[@npc_finger]}"
 
             if @pc_finger == @npc_finger then
                 puts "--------------------"
