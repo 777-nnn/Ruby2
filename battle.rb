@@ -21,7 +21,7 @@ class Janken
 
         puts "0(グー) 1(チョキ) 2(パー) 3(戦わない)"
                 
-        @pc_hand = gets.to_i
+        @pc_hand = Integer(gets) rescue nil
         @npc_hand = rand(3)
 
         self.judgeJanken()
@@ -30,7 +30,7 @@ class Janken
 
     def judgeJanken
 
-        if @pc_hand >= 0 && @pc_hand <= 2 then
+        if @pc_hand == 0 || @pc_hand == 1 || @pc_hand == 2 then
 
             if @janken_result != "あいこ" then
                 puts "ぽん！"
@@ -66,7 +66,7 @@ class Janken
         puts "あっち向いて・・・"
         puts "0(上) 1(右) 2(下) 3(左)"
 
-        @pc_finger = gets.to_i
+        @pc_finger = Integer(gets) rescue nil
         @npc_finger = rand(4)
 
         self.secondJudge()
@@ -75,7 +75,7 @@ class Janken
 
     def secondJudge
 
-        if @pc_finger >= 0 && @pc_finger <= 3 then
+        if @pc_finger == 0 || @pc_finger == 1 || @pc_finger == 2 || @pc_finger == 3 then
             puts "ほい！"
             puts "--------------------"
             puts "あなた : #{@@fingers[@pc_finger]}を出しました"
@@ -90,7 +90,7 @@ class Janken
 
         else
             puts "不正な値です"
-            self.secondJudge()
+            self.secondBattle()
         end
 
     end
